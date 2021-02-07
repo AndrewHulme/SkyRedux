@@ -12,10 +12,11 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3000 react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test:coverage": "react-scripts test --coverage"
   },
   "eslintConfig": {
     "extends": [
@@ -36,8 +37,13 @@
     ]
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.9.2",
+    "@cypress/instrument-cra": "^1.4.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
+    "babel-plugin-istanbul": "^6.0.0",
     "cypress": "^6.4.0",
-    "enzyme": "^3.11.0"
+    "enzyme": "^3.11.0",
+    "istanbul-lib-coverage": "^3.0.0",
+    "nyc": "^15.1.0"
   }
 }
