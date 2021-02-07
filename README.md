@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Sky Tech Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Acknowledgement
 
-## Available Scripts
+This product uses the TMDb API but is not endorsed or certified by TMDb.
 
-In the project directory, you can run:
+## Description
 
-### `yarn start`
+An application which allows a user to search for a movie, tv show or actor and be presented with a list of search results. Uses the TMDb API to source the data.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technology Used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- JavaScript
+- React
+- Jest
+- Enzyme
+- Cypress
+- Istanbul
+- HTML
+- CSS
 
-### `yarn test`
+## Acceptance Criteria
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- AC1: When a user first lands on the page, they are presented with a search input field and a search button.
 
-### `yarn build`
+- AC2: When a user first lands on the page, the search input field has focus.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- AC3: A user may type any text into the search input field then click on the search button to initiate a search.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- AC4: A user may type any text into the search input field then press the enter key to initiate a search.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- AC5: The search input field and the search button are always present on screen during all interactions with the application.
 
-### `yarn eject`
+- AC6: Upon initiating a search, the user is presented with the search results.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- AC7: Clicking on one of the results, shows more details of that result.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- AC8: The details page will show a full list of cross referential data, ie. a show details page will list all major cast members in that show, an actor details page will list all the shows that the actor has appeared in.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- AC9: On the details page, the user can click to to make onwards searches, ie. on a show detail page, the user can click on a cast member to be taken to that actor’s details page, on an actors details page, the user can click on any show to be taken to that show’s details page.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- AC10: Near the search input field and the search button, add an interface element to allow the user to filter the search results for only actors, only movies, only tv shows, or all.
 
-## Learn More
+- AC11: When a user is typing text into the search input field, after at least 5 characters have been entered, a list of clickable search suggestions is presented to the user.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- AC12: Clicking on a search suggestion takes the user straight to the details page for that suggestion.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Installation
 
-### Code Splitting
+- Clone this repository
+  `$ git clone git@github.com:AndrewHulme/SkyTechTest.git`
+- Navigate to local repository
+  `$ cd SkyTechTest`
+- Install npm
+- Install all dependencies
+  `$ npm install`
+- Start the server
+  `$ npm start`
+- Navigate to [http://localhost:3000/](http://localhost:3000/) in your browser
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Testing
 
-### Analyzing the Bundle Size
+### End to End
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Start Cypress to run the tests
+  `$ npx cypress open`
+- Click on `Run all specs` in Cypress
 
-### Making a Progressive Web App
+### Unit
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Start the tests using `$ npm test`
+- Type `a` to view all tests
 
-### Advanced Configuration
+## Test Coverage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### End to End
 
-### Deployment
+- Start Cypress to run the tests
+  `$ npx cypress open`
+- Click on `Run all specs` in Cypress
+- Navigate to `coverage/lcov-report` and open the `index.html` file in a browser
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Unit
 
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Start the tests with coverage using `$ npm run test:coverage`
+- Type `a` to view all tests
