@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div>
-      <Search updateSearch={updateSearch} onSearch={onSearch} />
+      <Search search={search} onSearch={onSearch} updateSearch={updateSearch} />
     </div>
   );
 }
