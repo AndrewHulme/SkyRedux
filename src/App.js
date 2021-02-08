@@ -1,5 +1,12 @@
+import React from "react";
+import Search from "./components/search/search.jsx";
+
 function App() {
-  return <div>Sky</div>;
+  return (
+    <div>
+      <Search />
+    </div>
+  );
 }
 
 export default App;
