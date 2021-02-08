@@ -28,4 +28,22 @@ describe("Search", () => {
 
     expect(input.props().id).toEqual(document.activeElement.id);
   });
+
+  it("should initiate a search by clicking the 'Search' button", () => {
+    const onSearch = jest.fn();
+    const updateSearch = jest.fn();
+    const initialProps = { updateSearch, onSearch };
+
+    const wrapper = shallow(<Search {...initialProps} />);
+    const input = wrapper.find("input");
+    const button = wrapper.find("button");
+
+    const event = { target: { value: "futurama" } };
+    input.simulate("change", event);
+
+    expect(updateSearch).toHaveBeenCalledWith("futurama");
+
+    button.simulate("click");
+    expect(onSearch).toHaveBeenCalled();
+  });
 });

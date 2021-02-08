@@ -10,4 +10,11 @@ describe("Search", () => {
 
     cy.focused().should("have.id", "searchInput");
   });
+
+  it("should show search results when user initiates a search", () => {
+    cy.visit("http://localhost:3000");
+    cy.get("#searchInput").type("futurama");
+    cy.get("#searchButton").click();
+    cy.get("#results").should("exist");
+  });
 });
