@@ -3,7 +3,7 @@ import React from "react";
 function Search() {
   return (
     <div>
-      <input id="searchInput"></input>
+      <input id="searchInput" autoFocus></input>
       <button id="searchButton">Search</button>
     </div>
   );
