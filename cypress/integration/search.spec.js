@@ -13,6 +13,7 @@ describe("Search", () => {
   });
 
   it("should show search results when user initiates a search", () => {
+    cy.get("#results").should("not.exist");
     cy.get("#searchInput").type("futurama");
     cy.get("#searchButton").click();
     cy.get("#results").should("exist");

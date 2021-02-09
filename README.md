@@ -54,6 +54,7 @@ An application which allows a user to search for a movie, tv show or actor and b
 - Install npm
 - Install all dependencies
   `$ npm install`
+- Register for an API key by signing up to the [TMDb website](https://developers.themoviedb.org/3/getting-started/introduction). Put the key in a file called `.env` in the root of the folder as `REACT_APP_TMDB_KEY="YOUR API KEY HERE"`
 - Start the server
   `$ npm start`
 - Navigate to [http://localhost:3000/](http://localhost:3000/) in your browser
