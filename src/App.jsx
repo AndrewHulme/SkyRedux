@@ -11,6 +11,7 @@ function App() {
   const [details, setDetails] = useState({});
   const [page, setPage] = useState("");
   const [mediaType, setMediaType] = useState("");
+  const [id, setId] = useState("");
 
   function onSearch() {
     console.log("Called!");
@@ -24,6 +25,7 @@ function App() {
     console.log("Details");
     console.log(item);
     console.log(item.id);
+    setId(item.id);
     setMediaType(item.media_type);
     fetchDetails(item.media_type, item.id, setDetails);
   }
@@ -37,7 +39,7 @@ function App() {
       )}
 
       {page === "details" && (
-        <Details details={details} mediaType={mediaType} />
+        <Details details={details} mediaType={mediaType} id={id} />
       )}
     </div>
   );

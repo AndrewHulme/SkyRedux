@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import App from "./app";
 import Search from "./components/search/search";
 import Results from "./components/results/results";
