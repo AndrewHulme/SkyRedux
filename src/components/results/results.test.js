@@ -5,8 +5,12 @@ import { mockResults } from "../../testHelper.js";
 
 describe("Results", () => {
   let wrapper;
+  let onDetails;
+
   beforeEach(() => {
-    wrapper = shallow(<Results results={mockResults} />);
+    onDetails = jest.fn();
+
+    wrapper = shallow(<Results results={mockResults} onDetails={onDetails} />);
   });
 
   it("Displays all three results", () => {
@@ -34,5 +38,11 @@ describe("Results", () => {
 
     const result3 = wrapper.find("#id5292");
     expect(result3.text()).toContain("person");
+  });
+
+  it("Calls onDetails when clicking the result", () => {
+    const result = wrapper.find("#id491283");
+    result.simulate("click");
+    expect(onDetails).toHaveBeenCalled();
   });
 });

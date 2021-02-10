@@ -4,6 +4,9 @@ const fetchResults = async (request, setResults) => {
   );
   const apiResults = await data.json();
 
+  // console.log("API Results");
+  // console.log(apiResults);
+
   setResults(apiResults.results);
   return apiResults;
 };
