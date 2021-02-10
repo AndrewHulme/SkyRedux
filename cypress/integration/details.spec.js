@@ -18,7 +18,8 @@ describe("Details", () => {
     cy.get("#searchButton").click();
     cy.get("#id615").click();
     cy.get("#credits").contains(
-      "Real Name: Billy West - Character Name: Fry / Professor Farnsworth / Zoidberg / Zapp Brannigan"
+      "Fry / Professor Farnsworth / Zoidberg / Zapp Brannigan"
     );
+    cy.get("#credits").contains("Billy West");
   });
 });

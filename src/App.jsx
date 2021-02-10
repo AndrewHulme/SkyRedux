@@ -5,6 +5,8 @@ import Details from "./components/details/details.jsx";
 import { fetchResults } from "./fetchRequests/fetchResults.js";
 import { fetchDetails } from "./fetchRequests/fetchDetails.js";
 
+import "./styles/custom.css";
+
 function App() {
   const [search, updateSearch] = useState("");
   const [results, setResults] = useState([]);

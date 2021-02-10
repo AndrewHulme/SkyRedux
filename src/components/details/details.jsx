@@ -15,10 +15,21 @@ function Details(props) {
           <div>Overview: {props.details.overview}</div>
           <br />
           <div id="credits">
-            {credits.map(
-              (credit) =>
-                `Real Name: ${credit.name} - Character Name: ${credit.character}`
-            )}
+            <h2>Credits</h2>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Real Name</th>
+                  <th>Character Name</th>
+                </tr>
+                {credits.map((credit, key) => (
+                  <tr key={key}>
+                    <td>{credit.name}</td>
+                    <td>{credit.character}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       )}
@@ -28,13 +39,32 @@ function Details(props) {
           <div>Overview: {props.details.biography}</div>
           <br />
           <div id="credits">
-            {credits.map((credit) => {
-              if (credit.media_type === "tv") {
-                return `${credit.media_type} - ${credit.name}`;
-              } else {
-                return `${credit.media_type} - ${credit.title}`;
-              }
-            })}
+            <h2>Credits</h2>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Media Type</th>
+                  <th>Media Title</th>
+                </tr>
+                {credits.map((credit, key) => {
+                  if (credit.media_type === "tv") {
+                    return (
+                      <tr key={key}>
+                        <td>{credit.media_type}</td>
+                        <td>{credit.name}</td>
+                      </tr>
+                    );
+                  } else {
+                    return (
+                      <tr key={key}>
+                        <td>{credit.media_type}</td>
+                        <td>{credit.title}</td>
+                      </tr>
+                    );
+                  }
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       )}

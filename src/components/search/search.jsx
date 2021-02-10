@@ -4,7 +4,7 @@ import SearchButton from "./searchButton.jsx";
 
 function Search(props) {
   return (
-    <div>
+    <div className="search">
       <SearchInput
         search={props.search}
         onSearch={props.onSearch}

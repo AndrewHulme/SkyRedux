@@ -72,10 +72,10 @@ describe("Details", () => {
     act(() => setCredits(mockCreditsTv));
 
     const div = wrapper.find("#credits");
-    expect(div.text()).toContain("Real Name: Dan Castellaneta");
-    expect(div.text()).toContain("Character Name: Homer Simpson");
-    expect(div.text()).toContain("Real Name: Julie Kavner");
-    expect(div.text()).toContain("Character Name: Marge Simpson");
+    expect(div.text()).toContain("Dan Castellaneta");
+    expect(div.text()).toContain("Homer Simpson");
+    expect(div.text()).toContain("Julie Kavner");
+    expect(div.text()).toContain("Marge Simpson");
   });
 
   it("displays credits for a movie", () => {
@@ -88,10 +88,10 @@ describe("Details", () => {
     act(() => setCredits(mockCreditsMovie));
 
     const div = wrapper.find("#credits");
-    expect(div.text()).toContain("Real Name: Sandra Bullock");
-    expect(div.text()).toContain("Real Name: George Clooney");
-    expect(div.text()).toContain("Character Name: Dr. Ryan Stone");
-    expect(div.text()).toContain("Character Name: Lt. Matt Kowalski");
+    expect(div.text()).toContain("Sandra Bullock");
+    expect(div.text()).toContain("George Clooney");
+    expect(div.text()).toContain("Dr. Ryan Stone");
+    expect(div.text()).toContain("Lt. Matt Kowalski");
   });
 
   it("displays list of shows for each person", () => {
@@ -104,7 +104,7 @@ describe("Details", () => {
     act(() => setCredits(mockCreditsPerson));
 
     const div = wrapper.find("#credits");
-    expect(div.text()).toContain("movie - Inside Man");
-    expect(div.text()).toContain("tv - The Academy Awards");
+    expect(div.text()).toContain("Inside Man");
+    expect(div.text()).toContain("The Academy Awards");
   });
 });

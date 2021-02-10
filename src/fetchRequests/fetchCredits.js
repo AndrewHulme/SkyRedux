@@ -8,8 +8,8 @@ const fetchCredits = async (mediaType, id, setCredits) => {
   );
   const apiCredits = await data.json();
 
-  console.log("API Credits");
-  console.log(apiCredits);
+  // console.log("API Credits");
+  // console.log(apiCredits);
 
   setCredits(apiCredits.cast);
   return apiCredits.cast;
