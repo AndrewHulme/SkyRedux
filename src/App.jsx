@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Search from "./components/search/search.jsx";
 import Results from "./components/results/results.jsx";
 import Details from "./components/details/details.jsx";
-import { fetchResults } from "./fetchResults.js";
-import { fetchDetails } from "./fetchDetails.js";
+import { fetchResults } from "./fetchRequests/fetchResults.js";
+import { fetchDetails } from "./fetchRequests/fetchDetails.js";
 
 function App() {
   const [search, updateSearch] = useState("");

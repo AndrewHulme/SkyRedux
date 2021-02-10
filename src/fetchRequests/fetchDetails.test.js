@@ -1,7 +1,9 @@
 import { fetchDetails } from "./fetchDetails.js";
-import { mockDetailsTv } from "./testHelper.js";
-import { mockDetailsMovie } from "./testHelper.js";
-import { mockDetailsPerson } from "./testHelper.js";
+import {
+  mockDetailsTv,
+  mockDetailsMovie,
+  mockDetailsPerson,
+} from "../testHelper.js";
 
 describe("FetchDetails", () => {
   let setDetails;

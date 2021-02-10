@@ -1,5 +1,5 @@
 import { fetchResults } from "./fetchResults.js";
-import { mockResults } from "./testHelper.js";
+import { mockResults } from "../testHelper.js";
 
 describe("FetchResults", () => {
   let setResults;

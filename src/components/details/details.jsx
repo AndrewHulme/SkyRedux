@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchCredits } from "../../fetchCredits.js";
+import { fetchCredits } from "../../fetchRequests/fetchCredits.js";
 
 function Details(props) {
   const [credits, setCredits] = useState([]);

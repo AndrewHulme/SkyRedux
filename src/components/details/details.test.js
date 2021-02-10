@@ -2,17 +2,19 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import Details from "./details";
 
-import { mockDetailsTv } from "../../testHelper.js";
-import { mockDetailsMovie } from "../../testHelper.js";
-import { mockDetailsPerson } from "../../testHelper.js";
-import { mockCreditsTv } from "../../testHelper.js";
-import { mockCreditsMovie } from "../../testHelper.js";
-import { mockCreditsPerson } from "../../testHelper.js";
-import { fetchCredits } from "../../fetchCredits.js";
+import {
+  mockDetailsTv,
+  mockDetailsMovie,
+  mockDetailsPerson,
+  mockCreditsTv,
+  mockCreditsMovie,
+  mockCreditsPerson,
+} from "../../testHelper.js";
+
+import { fetchCredits } from "../../fetchRequests/fetchCredits.js";
+jest.mock("../../fetchRequests/fetchCredits.js");
 
 import { act } from "react-dom/test-utils";
-
-jest.mock("../../fetchCredits.js");
 
 describe("Details", () => {
   it("displays overview for a tv show", () => {
