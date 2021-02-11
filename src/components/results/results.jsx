@@ -17,10 +17,8 @@ function Results(props) {
               key={result.id}
               onClick={() => props.onDetails(result)}
             >
-              <td>{result.media_type}</td>
-              <td>
-                {result.media_type === "movie" ? result.title : result.name}
-              </td>
+              <td>{result.media_type !== undefined && result.media_type}</td>
+              <td>{result.title !== undefined ? result.title : result.name}</td>
             </tr>
           ))}
         </tbody>

@@ -481,6 +481,126 @@ const mockCreditsPerson = [
   },
 ];
 
+const mockFilterDetailsPerson = [
+  {
+    adult: false,
+    gender: 2,
+    id: 5292,
+    known_for: [
+      {
+        adult: false,
+        backdrop_path: "/9vAoubhoZE8aSkUZoSfxs3UWZhO.jpg",
+        genre_ids: [53, 28, 80],
+        id: 156022,
+        media_type: "movie",
+        original_language: "en",
+        original_title: "The Equalizer",
+        overview:
+          "McCall believes he has put his mysterious past behind him and dedicated himself to beginning a new, quiet life. But when he meets Teri, a young girl under the control of ultra-violent Russian gangsters, he can’t stand idly by – he has to help her. Armed with hidden skills that allow him to serve vengeance against anyone who would brutalize the helpless, McCall comes out of his self-imposed retirement and finds his desire for justice reawakened. If someone has a problem, if the odds are stacked against them, if they have nowhere else to turn, McCall will help. He is The Equalizer.",
+        poster_path: "/9u4yW7yPA0BQ2pv9XwiNzItwvp8.jpg",
+        release_date: "2014-09-24",
+        title: "The Equalizer",
+        video: false,
+        vote_average: 7.2,
+        vote_count: 6378,
+      },
+    ],
+    known_for_department: "Acting",
+    name: "Denzel Washington",
+    popularity: 18.022,
+    profile_path: "/cEU2Vrdo83izpGmOvbVAOz5jCof.jpg",
+  },
+  {
+    adult: false,
+    gender: 2,
+    id: 77278,
+    known_for: [
+      {
+        adult: false,
+        backdrop_path: "/6ELJEzQJ3Y45HczvreC3dg0GV5R.jpg",
+        genre_ids: [28, 12, 14, 878],
+        id: 284054,
+        media_type: "movie",
+        original_language: "en",
+        original_title: "Black Panther",
+        overview:
+          "King T'Challa returns home to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne by factions within his own country as well as without. Using powers reserved to Wakandan kings, T'Challa assumes the Black Panther mantle to join with ex-girlfriend Nakia, the queen-mother, his princess-kid sister, members of the Dora Milaje (the Wakandan 'special forces') and an American secret agent, to prevent Wakanda from being dragged into a world war.",
+        poster_path: "/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
+        release_date: "2018-02-13",
+        title: "Black Panther",
+        video: false,
+        vote_average: 7.4,
+        vote_count: 16812,
+      },
+    ],
+    known_for_department: "Acting",
+    name: "Denzel Whitaker",
+    popularity: 2.572,
+    profile_path: "/8l5y5UDtkKJ13WQybqRXUEma7nm.jpg",
+  },
+];
+
+const amendedMockFilterDetailsPerson = [
+  {
+    adult: false,
+    gender: 2,
+    id: 5292,
+    known_for: [
+      {
+        adult: false,
+        backdrop_path: "/9vAoubhoZE8aSkUZoSfxs3UWZhO.jpg",
+        genre_ids: [53, 28, 80],
+        id: 156022,
+        media_type: "movie",
+        original_language: "en",
+        original_title: "The Equalizer",
+        overview:
+          "McCall believes he has put his mysterious past behind him and dedicated himself to beginning a new, quiet life. But when he meets Teri, a young girl under the control of ultra-violent Russian gangsters, he can’t stand idly by – he has to help her. Armed with hidden skills that allow him to serve vengeance against anyone who would brutalize the helpless, McCall comes out of his self-imposed retirement and finds his desire for justice reawakened. If someone has a problem, if the odds are stacked against them, if they have nowhere else to turn, McCall will help. He is The Equalizer.",
+        poster_path: "/9u4yW7yPA0BQ2pv9XwiNzItwvp8.jpg",
+        release_date: "2014-09-24",
+        title: "The Equalizer",
+        video: false,
+        vote_average: 7.2,
+        vote_count: 6378,
+      },
+    ],
+    known_for_department: "Acting",
+    media_type: "person",
+    name: "Denzel Washington",
+    popularity: 18.022,
+    profile_path: "/cEU2Vrdo83izpGmOvbVAOz5jCof.jpg",
+  },
+  {
+    adult: false,
+    gender: 2,
+    id: 77278,
+    known_for: [
+      {
+        adult: false,
+        backdrop_path: "/6ELJEzQJ3Y45HczvreC3dg0GV5R.jpg",
+        genre_ids: [28, 12, 14, 878],
+        id: 284054,
+        media_type: "movie",
+        original_language: "en",
+        original_title: "Black Panther",
+        overview:
+          "King T'Challa returns home to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne by factions within his own country as well as without. Using powers reserved to Wakandan kings, T'Challa assumes the Black Panther mantle to join with ex-girlfriend Nakia, the queen-mother, his princess-kid sister, members of the Dora Milaje (the Wakandan 'special forces') and an American secret agent, to prevent Wakanda from being dragged into a world war.",
+        poster_path: "/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
+        release_date: "2018-02-13",
+        title: "Black Panther",
+        video: false,
+        vote_average: 7.4,
+        vote_count: 16812,
+      },
+    ],
+    known_for_department: "Acting",
+    media_type: "person",
+    name: "Denzel Whitaker",
+    popularity: 2.572,
+    profile_path: "/8l5y5UDtkKJ13WQybqRXUEma7nm.jpg",
+  },
+];
+
 module.exports = {
   mockResults,
   mockDetailsTv,
@@ -489,4 +609,6 @@ module.exports = {
   mockCreditsTv,
   mockCreditsMovie,
   mockCreditsPerson,
+  mockFilterDetailsPerson,
+  amendedMockFilterDetailsPerson,
 };
