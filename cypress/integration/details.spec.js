@@ -22,4 +22,22 @@ describe("Details", () => {
     );
     cy.get("#credits").contains("Billy West");
   });
+
+  it("should show credits when viewing a movie", () => {
+    cy.get("#searchInput").type("skyfall");
+    cy.get("#searchButton").click();
+    cy.get("#id37724").click();
+    cy.get("#credits").contains("Daniel Craig");
+    cy.get("#credits").contains("James Bond");
+  });
+
+  it("should allow the user to click through from movie credits to an actors details", () => {
+    cy.get("#searchInput").type("skyfall");
+    cy.get("#searchButton").click();
+    cy.get("#id37724").click();
+    cy.get("#id8784").click();
+    cy.get("#personDetails").contains(
+      "Daniel Wroughton Craig is an English actor"
+    );
+  });
 });

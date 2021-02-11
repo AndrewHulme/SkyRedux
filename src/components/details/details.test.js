@@ -107,4 +107,96 @@ describe("Details", () => {
     expect(div.text()).toContain("Inside Man");
     expect(div.text()).toContain("The Academy Awards");
   });
+
+  it("calls onDetails when clicking the credits for tv show", () => {
+    const onDetails = jest.fn();
+
+    const wrapper = mount(
+      <Details
+        details={mockDetailsTv}
+        mediaType={"tv"}
+        id={456}
+        onDetails={onDetails}
+      />
+    );
+
+    const [mediaType, id, setCredits] = fetchCredits.mock.calls[0];
+
+    act(() => setCredits(mockCreditsTv));
+
+    wrapper.update();
+
+    const detail = wrapper.find("#id198");
+    detail.simulate("click");
+    expect(onDetails).toHaveBeenCalled();
+  });
+
+  it("calls onDetails when clicking the credits for a movie", () => {
+    const onDetails = jest.fn();
+
+    const wrapper = mount(
+      <Details
+        details={mockDetailsMovie}
+        mediaType={"movie"}
+        id={49047}
+        onDetails={onDetails}
+      />
+    );
+
+    const [mediaType, id, setCredits] = fetchCredits.mock.calls[0];
+
+    act(() => setCredits(mockCreditsMovie));
+
+    wrapper.update();
+
+    const detail = wrapper.find("#id18277");
+    detail.simulate("click");
+    expect(onDetails).toHaveBeenCalled();
+  });
+
+  it("calls onDetails when clicking the related movies for a person", () => {
+    const onDetails = jest.fn();
+
+    const wrapper = mount(
+      <Details
+        details={mockDetailsPerson}
+        mediaType={"person"}
+        id={5292}
+        onDetails={onDetails}
+      />
+    );
+
+    const [mediaType, id, setCredits] = fetchCredits.mock.calls[0];
+
+    act(() => setCredits(mockCreditsPerson));
+
+    wrapper.update();
+
+    const detail = wrapper.find("#id388");
+    detail.simulate("click");
+    expect(onDetails).toHaveBeenCalled();
+  });
+
+  it("calls onDetails when clicking the related tv shows for a person", () => {
+    const onDetails = jest.fn();
+
+    const wrapper = mount(
+      <Details
+        details={mockDetailsPerson}
+        mediaType={"person"}
+        id={5292}
+        onDetails={onDetails}
+      />
+    );
+
+    const [mediaType, id, setCredits] = fetchCredits.mock.calls[0];
+
+    act(() => setCredits(mockCreditsPerson));
+
+    wrapper.update();
+
+    const detail = wrapper.find("#id27023");
+    detail.simulate("click");
+    expect(onDetails).toHaveBeenCalled();
+  });
 });

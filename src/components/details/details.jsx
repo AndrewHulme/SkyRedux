@@ -6,13 +6,14 @@ function Details(props) {
 
   useEffect(() => {
     fetchCredits(props.mediaType, props.id, setCredits);
-  }, []);
+  }, [props.mediaType, props.id]);
 
   return (
     <div id="details">
       {(props.mediaType === "movie" || props.mediaType === "tv") && (
         <div id="showDetails">
-          <div>Overview: {props.details.overview}</div>
+          <h2>Overview</h2>
+          <div>{props.details.overview}</div>
           <br />
           <div id="credits">
             <h2>Credits</h2>
@@ -23,7 +24,13 @@ function Details(props) {
                   <th>Character Name</th>
                 </tr>
                 {credits.map((credit, key) => (
-                  <tr key={key}>
+                  <tr
+                    key={key}
+                    id={"id" + credit.id}
+                    onClick={() =>
+                      props.onDetails({ media_type: "person", id: credit.id })
+                    }
+                  >
                     <td>{credit.name}</td>
                     <td>{credit.character}</td>
                   </tr>
@@ -36,7 +43,8 @@ function Details(props) {
 
       {props.mediaType === "person" && (
         <div id="personDetails">
-          <div>Overview: {props.details.biography}</div>
+          <h2>Overview</h2>
+          <div>{props.details.biography}</div>
           <br />
           <div id="credits">
             <h2>Credits</h2>
@@ -49,14 +57,32 @@ function Details(props) {
                 {credits.map((credit, key) => {
                   if (credit.media_type === "tv") {
                     return (
-                      <tr key={key}>
+                      <tr
+                        key={key}
+                        id={"id" + credit.id}
+                        onClick={() =>
+                          props.onDetails({
+                            media_type: credit.media_type,
+                            id: credit.id,
+                          })
+                        }
+                      >
                         <td>{credit.media_type}</td>
                         <td>{credit.name}</td>
                       </tr>
                     );
                   } else {
                     return (
-                      <tr key={key}>
+                      <tr
+                        key={key}
+                        id={"id" + credit.id}
+                        onClick={() =>
+                          props.onDetails({
+                            media_type: credit.media_type,
+                            id: credit.id,
+                          })
+                        }
+                      >
                         <td>{credit.media_type}</td>
                         <td>{credit.title}</td>
                       </tr>

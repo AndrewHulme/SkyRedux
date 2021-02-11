@@ -41,7 +41,12 @@ function App() {
       )}
 
       {page === "details" && (
-        <Details details={details} mediaType={mediaType} id={id} />
+        <Details
+          details={details}
+          mediaType={mediaType}
+          id={id}
+          onDetails={onDetails}
+        />
       )}
     </div>
   );
