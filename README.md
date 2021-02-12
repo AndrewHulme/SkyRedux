@@ -45,6 +45,10 @@ An application which allows a user to search for a movie, tv show or actor and b
 
 - AC12: Clicking on a search suggestion takes the user straight to the details page for that suggestion.
 
+## Oustanding tasks
+
+- Here is a link to my [project board](https://github.com/AndrewHulme/SkyTechTest/projects/1).
+
 ## Installation
 
 - Clone this repository
@@ -63,6 +67,8 @@ An application which allows a user to search for a movie, tv show or actor and b
 
 ### End to End
 
+- Start the server
+  `$ npm start`
 - Start Cypress to run the tests
   `$ npx cypress open`
 - Click on `Run all specs` in Cypress
@@ -76,12 +82,18 @@ An application which allows a user to search for a movie, tv show or actor and b
 
 ### End to End
 
+- Start the server
+  `$ npm start`
 - Start Cypress to run the tests
   `$ npx cypress open`
 - Click on `Run all specs` in Cypress
 - Navigate to `coverage/lcov-report` and open the `index.html` file in a browser
 
+<img width="1000" src="images/integrationTestCoverage.png" alt="integrationCoverage" border="0" />
+
 ### Unit
 
 - Start the tests with coverage using `$ npm run test:coverage`
 - Type `a` to view all tests
+
+<img width="1000" src="images/unitTestCoverage.png" alt="unitCoverage" border="0" />
