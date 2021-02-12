@@ -16,7 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:coverage": "react-scripts test --coverage"
+    "test:coverage": "react-scripts test --env=jsdom --watchAll=false --coverage"
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +45,11 @@
     "enzyme": "^3.11.0",
     "istanbul-lib-coverage": "^3.0.0",
     "nyc": "^15.1.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js"
+    ]
   }
 }
