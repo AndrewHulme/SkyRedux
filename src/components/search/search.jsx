@@ -10,6 +10,7 @@ function Search(props) {
         search={props.search}
         onSearch={props.onSearch}
         updateSearch={props.updateSearch}
+        filterFor={props.filterFor}
       />
       <SearchButton onSearch={props.onSearch} />
       <SearchFilter

@@ -18,4 +18,11 @@ describe("Search", () => {
     cy.get("#searchButton").click();
     cy.get("#results").should("exist");
   });
+
+  it("should show search suggestions when user initiates a search with 5 or more characters", () => {
+    cy.get("#searchSuggestions").should("not.exist");
+    cy.get("#searchInput").type("futurama");
+    cy.get("#searchSuggestions").should("exist");
+    cy.get("#suggestionid615").contains("Futurama");
+  });
 });
