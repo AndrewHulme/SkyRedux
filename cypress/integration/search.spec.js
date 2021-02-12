@@ -12,10 +12,17 @@ describe("Search", () => {
     cy.focused().should("have.id", "searchInput");
   });
 
-  it("should show search results when user initiates a search", () => {
+  it("should show search results when user initiates a search with button", () => {
     cy.get("#results").should("not.exist");
     cy.get("#searchInput").type("futurama");
     cy.get("#searchButton").click();
+    cy.get("#results").should("exist");
+  });
+
+  it("should show search results when user initiates a search using Enter key", () => {
+    cy.get("#results").should("not.exist");
+    cy.get("#searchInput").type("futurama");
+    cy.get("#searchInput").type("{enter}");
     cy.get("#results").should("exist");
   });
 
