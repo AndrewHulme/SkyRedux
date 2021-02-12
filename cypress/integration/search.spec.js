@@ -24,5 +24,28 @@ describe("Search", () => {
     cy.get("#searchInput").type("futurama");
     cy.get("#searchSuggestions").should("exist");
     cy.get("#suggestionid615").contains("Futurama");
+    cy.get("#suggestionid13253").should("exist");
+  });
+
+  it("should filter search suggestions when user initiates a search with 5 or more characters and a TV filter", () => {
+    cy.get("#searchSuggestions").should("not.exist");
+
+    cy.get(".dropbtn").click();
+    cy.get("#filterTv").click();
+
+    cy.get("#searchInput").type("futurama");
+    cy.get("#searchSuggestions").should("exist");
+    cy.get("#suggestionid13253").should("not.exist");
+    cy.get("#suggestionid615").should("exist");
+  });
+
+  it("should filter search suggestions when user initiates a search with 5 or more characters and a TV filter", () => {
+    cy.get(".dropbtn").click();
+    cy.get("#filterActors").click();
+
+    cy.get("#searchInput").type("daniel");
+    cy.get("#searchSuggestions").should("exist");
+    cy.get("#suggestionid11053").should("not.exist");
+    cy.get("#suggestionid10980").should("exist");
   });
 });

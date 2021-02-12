@@ -48,6 +48,12 @@ function SearchInput(props) {
               key={index}
               id={"suggestionid" + suggestion.id}
               className="suggestionsEntry"
+              onClick={() =>
+                props.onDetails({
+                  media_type: suggestion.media_type,
+                  id: suggestion.id,
+                })
+              }
             >
               {suggestion.title !== undefined
                 ? suggestion.title

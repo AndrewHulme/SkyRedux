@@ -44,6 +44,7 @@ function App() {
         updateSearch={updateSearch}
         filterFor={filterFor}
         setFilterFor={setFilterFor}
+        onDetails={onDetails}
       />
 
       {page === "results" && (

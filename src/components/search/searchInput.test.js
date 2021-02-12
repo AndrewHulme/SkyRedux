@@ -75,47 +75,74 @@ describe("SearchInput", () => {
     expect(searchSuggestions.exists()).toBeFalsy();
   });
 
-  it("should show search suggestions to user after 5 characters have been entered", async () => {
-    const updateSearch = jest.fn();
-    const search = "testing";
+  describe("having entered 5 or more characters", () => {
+    it("should show search suggestions to user after 5 characters have been entered", async () => {
+      const updateSearch = jest.fn();
+      const search = "testing";
 
-    const initialProps = { updateSearch, search };
+      const initialProps = { updateSearch, search };
 
-    fetchResults.mockResolvedValue(mockResults);
+      fetchResults.mockResolvedValue(mockResults);
 
-    let wrapper;
-    await act(() => {
-      wrapper = mount(<SearchInput {...initialProps} />);
-      return Promise.resolve();
+      let wrapper;
+      await act(() => {
+        wrapper = mount(<SearchInput {...initialProps} />);
+        return Promise.resolve();
+      });
+
+      wrapper.update();
+
+      const searchSuggestions = wrapper.find("#searchSuggestions");
+      expect(searchSuggestions.exists()).toBeTruthy();
+
+      const entries = searchSuggestions.find(".suggestionsEntry");
+      expect(entries.length).toEqual(3);
     });
 
-    wrapper.update();
+    it("should show search suggestion names to user", async () => {
+      const updateSearch = jest.fn();
+      const search = "testing";
 
-    const searchSuggestions = wrapper.find("#searchSuggestions");
-    expect(searchSuggestions.exists()).toBeTruthy();
+      const initialProps = { updateSearch, search };
 
-    const entries = searchSuggestions.find(".suggestionsEntry");
-    expect(entries.length).toEqual(3);
-  });
+      fetchResults.mockResolvedValue(mockResults);
 
-  it("should show search suggestion names to user", async () => {
-    const updateSearch = jest.fn();
-    const search = "testing";
+      let wrapper;
+      await act(() => {
+        wrapper = mount(<SearchInput {...initialProps} />);
+        return Promise.resolve();
+      });
 
-    const initialProps = { updateSearch, search };
+      wrapper.update();
 
-    fetchResults.mockResolvedValue(mockResults);
-
-    let wrapper;
-    await act(() => {
-      wrapper = mount(<SearchInput {...initialProps} />);
-      return Promise.resolve();
+      const suggestion = wrapper.find("#suggestionid491283");
+      expect(suggestion.text()).toContain("Judy");
     });
 
-    wrapper.update();
+    it("should call onDetails when clicking on a suggestion", async () => {
+      const updateSearch = jest.fn();
+      const onDetails = jest.fn();
+      const search = "testing";
 
-    const suggestion = wrapper.find("#suggestionid491283");
-    expect(suggestion);
-    expect(suggestion.text()).toContain("Judy");
+      const initialProps = { updateSearch, search, onDetails };
+
+      fetchResults.mockResolvedValue(mockResults);
+
+      let wrapper;
+      await act(() => {
+        wrapper = mount(<SearchInput {...initialProps} />);
+        return Promise.resolve();
+      });
+
+      wrapper.update();
+
+      const suggestion = wrapper.find("#suggestionid491283");
+
+      suggestion.simulate("click");
+      expect(onDetails).toHaveBeenCalledWith({
+        media_type: "movie",
+        id: 491283,
+      });
+    });
   });
 });

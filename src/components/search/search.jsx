@@ -11,6 +11,7 @@ function Search(props) {
         onSearch={props.onSearch}
         updateSearch={props.updateSearch}
         filterFor={props.filterFor}
+        onDetails={props.onDetails}
       />
       <SearchButton onSearch={props.onSearch} />
       <SearchFilter
