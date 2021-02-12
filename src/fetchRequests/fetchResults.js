@@ -9,17 +9,12 @@ const fetchResults = async (request, setResults, filter = "All") => {
   const apiResults = await data.json();
   let resultsArray = apiResults.results || [];
 
-  // console.log(apiResults);
-
   if (filter !== "All") {
     resultsArray = resultsArray.map((result) => ({
       ...result,
       media_type: filterResults,
     }));
   }
-
-  // console.log("API Results");
-  // console.log(resultsArray);
 
   setResults(resultsArray);
   return resultsArray;

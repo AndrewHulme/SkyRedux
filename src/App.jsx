@@ -19,17 +19,12 @@ function App() {
   const [filterFor, setFilterFor] = useState("All");
 
   function onSearch() {
-    console.log("Called!");
-    console.log(search);
     setPage("results");
     fetchResults(search, setResults, filterFor);
   }
 
   function onDetails(item) {
     setPage("details");
-    console.log("Details");
-    console.log(item);
-    console.log(item.id);
     setId(item.id);
 
     mediaType.current = item.media_type;

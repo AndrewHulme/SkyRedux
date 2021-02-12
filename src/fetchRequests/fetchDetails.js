@@ -4,9 +4,6 @@ const fetchDetails = async (mediaType, id, setDetails) => {
   );
   const apiDetails = await data.json();
 
-  // console.log("API Details");
-  // console.log(apiDetails);
-
   setDetails(apiDetails);
   return apiDetails;
 };
