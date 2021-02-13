@@ -65,7 +65,7 @@ describe("FetchResults", () => {
     });
   });
 
-  describe("fetch request returns nothing", () => {
+  describe("when no resolve", () => {
     let setResults;
 
     beforeEach(() => {
@@ -79,7 +79,7 @@ describe("FetchResults", () => {
     });
 
     it("returns an empty array", async () => {
-      const emptyResults = await fetchResults("denzel", setResults, "Actors");
+      const emptyResults = await fetchResults("", setResults, "");
       expect(emptyResults).toEqual([]);
     });
   });

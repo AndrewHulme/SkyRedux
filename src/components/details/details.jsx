@@ -10,90 +10,53 @@ function Details(props) {
 
   return (
     <div id="details">
-      {(props.mediaType === "movie" || props.mediaType === "tv") && (
-        <div id="showDetails">
-          <h2>Overview</h2>
-          <div>{props.details.overview}</div>
-          <br />
-          <div id="credits">
-            <h2>Credits</h2>
-            <table>
-              <tbody>
-                <tr>
-                  <th>Real Name</th>
-                  <th>Character Name</th>
-                </tr>
-                {credits.map((credit, key) => (
-                  <tr
-                    key={key}
-                    id={"id" + credit.id}
-                    onClick={() =>
-                      props.onDetails({ media_type: "person", id: credit.id })
-                    }
-                  >
-                    <td>{credit.name}</td>
-                    <td>{credit.character}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+      <div id={props.mediaType === "person" ? "personDetails" : "showDetails"}>
+        <h2>Overview</h2>
+        <div>
+          {props.mediaType === "person"
+            ? props.details.biography
+            : props.details.overview}
         </div>
-      )}
-
-      {props.mediaType === "person" && (
-        <div id="personDetails">
-          <h2>Overview</h2>
-          <div>{props.details.biography}</div>
-          <br />
-          <div id="credits">
-            <h2>Credits</h2>
-            <table>
-              <tbody>
+        <br />
+        <div id="credits">
+          <h2>Credits</h2>
+          <table>
+            <tbody>
+              {props.mediaType === "person" ? (
                 <tr>
                   <th>Media Type</th>
                   <th>Media Title</th>
                 </tr>
-                {credits.map((credit, key) => {
-                  if (credit.media_type === "tv") {
-                    return (
-                      <tr
-                        key={key}
-                        id={"id" + credit.id}
-                        onClick={() =>
-                          props.onDetails({
-                            media_type: credit.media_type,
-                            id: credit.id,
-                          })
-                        }
-                      >
-                        <td>{credit.media_type}</td>
-                        <td>{credit.name}</td>
-                      </tr>
-                    );
-                  } else {
-                    return (
-                      <tr
-                        key={key}
-                        id={"id" + credit.id}
-                        onClick={() =>
-                          props.onDetails({
-                            media_type: credit.media_type,
-                            id: credit.id,
-                          })
-                        }
-                      >
-                        <td>{credit.media_type}</td>
-                        <td>{credit.title}</td>
-                      </tr>
-                    );
+              ) : (
+                <tr>
+                  <th>Real Name</th>
+                  <th>Character Name</th>
+                </tr>
+              )}
+
+              {credits.map((credit, key) => (
+                <tr
+                  key={key}
+                  id={"id" + credit.id}
+                  onClick={() =>
+                    props.onDetails({
+                      media_type: credit.media_type,
+                      id: credit.id,
+                    })
                   }
-                })}
-              </tbody>
-            </table>
-          </div>
+                >
+                  {props.mediaType === "person" && <td>{credit.media_type}</td>}
+                  {props.mediaType !== "person" && <td>{credit.name}</td>}
+
+                  {props.mediaType !== "person" && <td>{credit.character}</td>}
+                  {credit.media_type === "tv" && <td>{credit.name}</td>}
+                  {credit.media_type === "movie" && <td>{credit.title}</td>}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      )}
+      </div>
     </div>
   );
 }
