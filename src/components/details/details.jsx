@@ -54,41 +54,23 @@ function Details(props) {
                   <th>Media Type</th>
                   <th>Media Title</th>
                 </tr>
-                {credits.map((credit, key) => {
-                  if (credit.media_type === "tv") {
-                    return (
-                      <tr
-                        key={key}
-                        id={"id" + credit.id}
-                        onClick={() =>
-                          props.onDetails({
-                            media_type: credit.media_type,
-                            id: credit.id,
-                          })
-                        }
-                      >
-                        <td>{credit.media_type}</td>
-                        <td>{credit.name}</td>
-                      </tr>
-                    );
-                  } else {
-                    return (
-                      <tr
-                        key={key}
-                        id={"id" + credit.id}
-                        onClick={() =>
-                          props.onDetails({
-                            media_type: credit.media_type,
-                            id: credit.id,
-                          })
-                        }
-                      >
-                        <td>{credit.media_type}</td>
-                        <td>{credit.title}</td>
-                      </tr>
-                    );
-                  }
-                })}
+                {credits.map((credit, key) => (
+                  <tr
+                    key={key}
+                    id={"id" + credit.id}
+                    onClick={() =>
+                      props.onDetails({
+                        media_type: credit.media_type,
+                        id: credit.id,
+                      })
+                    }
+                  >
+                    <td>{credit.media_type}</td>
+                    <td>
+                      {credit.media_type === "tv" ? credit.name : credit.title}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

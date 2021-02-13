@@ -72,6 +72,10 @@ describe("Details", () => {
     act(() => setCredits(mockCreditsTv));
 
     const div = wrapper.find("#credits");
+
+    expect(div.text()).toContain("Real Name");
+    expect(div.text()).toContain("Character Name");
+
     expect(div.text()).toContain("Dan Castellaneta");
     expect(div.text()).toContain("Homer Simpson");
     expect(div.text()).toContain("Julie Kavner");
@@ -88,6 +92,10 @@ describe("Details", () => {
     act(() => setCredits(mockCreditsMovie));
 
     const div = wrapper.find("#credits");
+
+    expect(div.text()).toContain("Real Name");
+    expect(div.text()).toContain("Character Name");
+
     expect(div.text()).toContain("Sandra Bullock");
     expect(div.text()).toContain("George Clooney");
     expect(div.text()).toContain("Dr. Ryan Stone");
@@ -104,6 +112,10 @@ describe("Details", () => {
     act(() => setCredits(mockCreditsPerson));
 
     const div = wrapper.find("#credits");
+
+    expect(div.text()).toContain("Media Type");
+    expect(div.text()).toContain("Media Title");
+
     expect(div.text()).toContain("Inside Man");
     expect(div.text()).toContain("The Academy Awards");
   });
