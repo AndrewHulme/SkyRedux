@@ -3,6 +3,8 @@ import {
   mockCreditsTv,
   mockCreditsMovie,
   mockCreditsPerson,
+  amendedMockCreditsTv,
+  amendedMockCreditsMovie,
 } from "../testHelper.js";
 
 describe("FetchCredits", () => {
@@ -21,8 +23,8 @@ describe("FetchCredits", () => {
 
     const credits = await fetchCredits("tv", 123, setCredits);
 
-    expect(credits).toEqual(mockCreditsTv);
-    expect(setCredits).toHaveBeenCalledWith(mockCreditsTv);
+    expect(credits).toEqual(amendedMockCreditsTv);
+    expect(setCredits).toHaveBeenCalledWith(amendedMockCreditsTv);
     expect(global.fetch).toHaveBeenCalledWith(
       `https://api.themoviedb.org/3/tv/123/credits?api_key=${process.env.REACT_APP_TMDB_KEY}`
     );
@@ -37,8 +39,8 @@ describe("FetchCredits", () => {
 
     const credits = await fetchCredits("movie", 123, setCredits);
 
-    expect(credits).toEqual(mockCreditsMovie);
-    expect(setCredits).toHaveBeenCalledWith(mockCreditsMovie);
+    expect(credits).toEqual(amendedMockCreditsMovie);
+    expect(setCredits).toHaveBeenCalledWith(amendedMockCreditsMovie);
     expect(global.fetch).toHaveBeenCalledWith(
       `https://api.themoviedb.org/3/movie/123/credits?api_key=${process.env.REACT_APP_TMDB_KEY}`
     );
@@ -58,5 +60,16 @@ describe("FetchCredits", () => {
     expect(global.fetch).toHaveBeenCalledWith(
       `https://api.themoviedb.org/3/person/123/combined_credits?api_key=${process.env.REACT_APP_TMDB_KEY}`
     );
+  });
+
+  it("returns an empty array when no resolve", async () => {
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve({}),
+      })
+    );
+
+    const emptyCredits = await fetchCredits("", 123, setCredits);
+    expect(emptyCredits).toEqual([]);
   });
 });

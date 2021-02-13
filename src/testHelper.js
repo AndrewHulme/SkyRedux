@@ -481,6 +481,70 @@ const mockCreditsPerson = [
   },
 ];
 
+const amendedMockCreditsTv = [
+  {
+    adult: false,
+    gender: 2,
+    id: 198,
+    known_for_department: "Acting",
+    media_type: "person",
+    name: "Dan Castellaneta",
+    original_name: "Dan Castellaneta",
+    popularity: 4.13,
+    profile_path: "/AmeqWhP4A46AWkM4kVphg6jOTQX.jpg",
+    character: "Homer Simpson",
+    credit_id: "5256bdc319c2956ff600157c",
+    order: 0,
+  },
+  {
+    adult: false,
+    gender: 1,
+    id: 199,
+    known_for_department: "Acting",
+    media_type: "person",
+    name: "Julie Kavner",
+    original_name: "Julie Kavner",
+    popularity: 5.364,
+    profile_path: "/x3oG3OXtBfTFgqXPqxI1GKVEiaQ.jpg",
+    character: "Marge Simpson",
+    credit_id: "5256bdc319c2956ff60015a0",
+    order: 1,
+  },
+];
+
+const amendedMockCreditsMovie = [
+  {
+    adult: false,
+    gender: 1,
+    id: 18277,
+    known_for_department: "Acting",
+    media_type: "person",
+    name: "Sandra Bullock",
+    original_name: "Sandra Bullock",
+    popularity: 14.76,
+    profile_path: "/u2tnZ0L2dwrzFKevVANYT5Pb1nE.jpg",
+    cast_id: 3,
+    character: "Dr. Ryan Stone",
+    credit_id: "52fe4783c3a36847f8139d6b",
+    order: 0,
+  },
+  {
+    adult: false,
+    gender: 2,
+    id: 1461,
+    known_for_department: "Acting",
+    media_type: "person",
+    name: "George Clooney",
+    original_name: "George Clooney",
+    popularity: 4.403,
+    profile_path: "/kHiVY6r1k6juXrNetAYk2jILqn9.jpg",
+    cast_id: 4,
+    character: "Lt. Matt Kowalski",
+    credit_id: "52fe4783c3a36847f8139d6f",
+    order: 1,
+  },
+];
+
 const mockFilterDetailsPerson = [
   {
     adult: false,
@@ -611,4 +675,6 @@ module.exports = {
   mockCreditsPerson,
   mockFilterDetailsPerson,
   amendedMockFilterDetailsPerson,
+  amendedMockCreditsTv,
+  amendedMockCreditsMovie,
 };
