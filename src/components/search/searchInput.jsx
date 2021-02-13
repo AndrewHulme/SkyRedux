@@ -33,7 +33,7 @@ function SearchInput(props) {
   }, [props.search]);
 
   return (
-    <div>
+    <div id="searchInputContainer">
       <input
         id="searchInput"
         autoFocus
