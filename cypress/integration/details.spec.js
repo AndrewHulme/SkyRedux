@@ -17,6 +17,8 @@ describe("Details", () => {
     cy.get("#searchInput").type("futurama");
     cy.get("#searchButton").click();
     cy.get("#id615").click();
+    cy.get("#credits").contains("Real Name");
+    cy.get("#credits").contains("Character Name");
     cy.get("#credits").contains(
       "Fry / Professor Farnsworth / Zoidberg / Zapp Brannigan"
     );
@@ -27,8 +29,19 @@ describe("Details", () => {
     cy.get("#searchInput").type("skyfall");
     cy.get("#searchButton").click();
     cy.get("#id37724").click();
+    cy.get("#credits").contains("Real Name");
+    cy.get("#credits").contains("Character Name");
     cy.get("#credits").contains("Daniel Craig");
     cy.get("#credits").contains("James Bond");
+  });
+
+  it("should show related movies and TV shows when viewing a person", () => {
+    cy.get("#searchInput").type("denzel");
+    cy.get("#searchButton").click();
+    cy.get("#id5292").click();
+    cy.get("#credits").contains("Media Type");
+    cy.get("#credits").contains("Media Title");
+    cy.get("#credits").contains("Inside Man");
   });
 
   it("should allow the user to click through from movie credits to an actors details", () => {
