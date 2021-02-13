@@ -28,7 +28,10 @@ function Details(props) {
                     key={key}
                     id={"id" + credit.id}
                     onClick={() =>
-                      props.onDetails({ media_type: "person", id: credit.id })
+                      props.onDetails({
+                        media_type: credit.media_type,
+                        id: credit.id,
+                      })
                     }
                   >
                     <td>{credit.name}</td>
