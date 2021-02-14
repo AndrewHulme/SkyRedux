@@ -223,5 +223,29 @@ describe("SearchInput", () => {
       const searchSuggestions = wrapper.find("#searchSuggestions");
       expect(searchSuggestions.exists()).toBeTruthy();
     });
+
+    it("should hide the search suggestions when pressing the 'Enter' key", async () => {
+      const updateSearch = jest.fn();
+      const onDetails = jest.fn();
+      const onSearch = jest.fn();
+      const search = "testing";
+
+      const initialProps = { updateSearch, search, onSearch, onDetails };
+
+      fetchResults.mockResolvedValue(mockResults);
+
+      let wrapper;
+      await act(() => {
+        wrapper = mount(<SearchInput {...initialProps} />);
+        return Promise.resolve();
+      });
+
+      wrapper.update();
+
+      const input = wrapper.find("input");
+      input.simulate("keypress", { key: "Enter" });
+      const searchSuggestions = wrapper.find("#searchSuggestions");
+      expect(searchSuggestions.exists()).toBeFalsy();
+    });
   });
 });

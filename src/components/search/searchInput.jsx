@@ -10,6 +10,7 @@ function SearchInput(props) {
   function handleKeyPress(event) {
     if (event.key === "Enter") {
       props.onSearch();
+      setDisplaySuggestions(false);
     }
   }
 

@@ -72,4 +72,10 @@ describe("Search", () => {
     cy.get("#searchInput").click();
     cy.get("#searchSuggestions").should("exist");
   });
+
+  it("should hide search suggestions when clicking using Enter key in input box", () => {
+    cy.get("#searchInput").type("futurama");
+    cy.get("#searchInput").type("{enter}");
+    cy.get("#searchSuggestions").should("not.exist");
+  });
 });
