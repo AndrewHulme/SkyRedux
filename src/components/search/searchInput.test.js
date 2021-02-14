@@ -143,6 +143,85 @@ describe("SearchInput", () => {
         media_type: "movie",
         id: 491283,
       });
+
+      const searchSuggestions = wrapper.find("#searchSuggestions");
+      expect(searchSuggestions.exists()).toBeFalsy();
+    });
+
+    it("hides search suggestions when clicking outside the input box", async () => {
+      const updateSearch = jest.fn();
+      const onDetails = jest.fn();
+      const search = "testing";
+
+      const initialProps = { updateSearch, search, onDetails };
+
+      fetchResults.mockResolvedValue(mockResults);
+
+      const map = {};
+      document.addEventListener = jest.fn((event, cb) => {
+        map[event] = cb;
+      });
+
+      let wrapper;
+      await act(() => {
+        wrapper = mount(<SearchInput {...initialProps} />);
+        return Promise.resolve();
+      });
+
+      wrapper.update();
+
+      const searchSuggestions = wrapper.find("#searchSuggestions");
+      expect(searchSuggestions.exists()).toBeTruthy();
+
+      act(() => map.mousedown({}));
+
+      wrapper.update();
+
+      const updatedSearchSuggestions = wrapper.find("#searchSuggestions");
+      expect(updatedSearchSuggestions.exists()).toBeFalsy();
+
+      const eventRemover = (document.removeEventListener = jest.fn());
+
+      await act(() => {
+        wrapper.unmount();
+        return Promise.resolve();
+      });
+
+      expect(eventRemover).toHaveBeenCalled();
+    });
+
+    it("does not hide search suggestions when clicking the input box", async () => {
+      const updateSearch = jest.fn();
+      const onDetails = jest.fn();
+      const search = "testing";
+
+      const initialProps = { updateSearch, search, onDetails };
+
+      fetchResults.mockResolvedValue(mockResults);
+
+      const map = {};
+      document.addEventListener = jest.fn((event, cb) => {
+        map[event] = cb;
+      });
+
+      let wrapper;
+      await act(() => {
+        wrapper = mount(<SearchInput {...initialProps} />);
+        return Promise.resolve();
+      });
+
+      wrapper.update();
+
+      const searchInputContainer = wrapper
+        .find("#searchInputContainer")
+        .instance();
+
+      act(() => map.mousedown({ target: searchInputContainer }));
+
+      wrapper.update();
+
+      const searchSuggestions = wrapper.find("#searchSuggestions");
+      expect(searchSuggestions.exists()).toBeTruthy();
     });
   });
 });

@@ -55,4 +55,23 @@ describe("Search", () => {
     cy.get("#suggestionid11053").should("not.exist");
     cy.get("#suggestionid10980").should("exist");
   });
+
+  it("should close search suggestions when clicking on a search suggestion", () => {
+    cy.get("#searchInput").type("futurama");
+    cy.get("#searchSuggestions").should("exist");
+    cy.get("#suggestionid615").click();
+    cy.get("#searchSuggestions").should("not.exist");
+  });
+
+  it("should close search suggestions when clicking outside the input box", () => {
+    cy.get("#searchInput").type("futurama");
+    cy.get("body").click(0, 0);
+    cy.get("#searchSuggestions").should("not.exist");
+  });
+
+  it("should keep showing search suggestions when clicking inside the input box", () => {
+    cy.get("#searchInput").type("futurama");
+    cy.get("#searchInput").click();
+    cy.get("#searchSuggestions").should("exist");
+  });
 });
