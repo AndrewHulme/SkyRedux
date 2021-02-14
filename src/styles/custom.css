@@ -25,3 +25,7 @@
 #searchSuggestions :hover {
   background-color: #ddd;
 }
+
+#detailsTitle {
+  text-align: center;
+}
