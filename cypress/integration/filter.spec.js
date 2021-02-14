@@ -4,8 +4,7 @@ describe("Filter", () => {
   });
 
   it("should show filtered results when user chooses filter", () => {
-    cy.get(".dropbtn").click();
-    cy.get("#filterMovies").click();
+    cy.get("#filterSelect").select("filterMovies");
 
     cy.get("#searchInput").type("Judy");
     cy.get("#searchButton").click();
@@ -16,8 +15,7 @@ describe("Filter", () => {
   });
 
   it("should show all filtered results when user chooses All", () => {
-    cy.get(".dropbtn").click();
-    cy.get("#filterAll").click();
+    cy.get("#filterSelect").select("filterAll");
 
     cy.get("#searchInput").type("Judy");
     cy.get("#searchButton").click();

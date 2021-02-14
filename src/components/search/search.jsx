@@ -14,10 +14,7 @@ function Search(props) {
         onDetails={props.onDetails}
       />
       <SearchButton onSearch={props.onSearch} />
-      <SearchFilter
-        setFilterFor={props.setFilterFor}
-        filterFor={props.filterFor}
-      />
+      <SearchFilter setFilterFor={props.setFilterFor} />
     </div>
   );
 }

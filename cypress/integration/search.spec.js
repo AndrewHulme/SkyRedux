@@ -6,6 +6,12 @@ describe("Search", () => {
   it("should show a search input field and a search button", () => {
     cy.get("#searchInput").should("be.visible");
     cy.get("#searchButton").should("be.visible");
+
+    cy.get("#searchInput").should(
+      "have.attr",
+      "placeholder",
+      "Search for Actors, Movies or TV Shows"
+    );
   });
 
   it("should immediately focus on search input field when user lands on page", () => {
@@ -37,8 +43,7 @@ describe("Search", () => {
   it("should filter search suggestions when user initiates a search with 5 or more characters and a TV filter", () => {
     cy.get("#searchSuggestions").should("not.exist");
 
-    cy.get(".dropbtn").click();
-    cy.get("#filterTv").click();
+    cy.get("#filterSelect").select("filterTv");
 
     cy.get("#searchInput").type("futurama");
     cy.get("#searchSuggestions").should("exist");
@@ -46,13 +51,37 @@ describe("Search", () => {
     cy.get("#suggestionid615").should("exist");
   });
 
-  it("should filter search suggestions when user initiates a search with 5 or more characters and a TV filter", () => {
-    cy.get(".dropbtn").click();
-    cy.get("#filterActors").click();
+  it("should filter search suggestions when user initiates a search with 5 or more characters and an Actor", () => {
+    cy.get("#filterSelect").select("filterActors");
 
     cy.get("#searchInput").type("daniel");
     cy.get("#searchSuggestions").should("exist");
     cy.get("#suggestionid11053").should("not.exist");
     cy.get("#suggestionid10980").should("exist");
+  });
+
+  it("should close search suggestions when clicking on a search suggestion", () => {
+    cy.get("#searchInput").type("futurama");
+    cy.get("#searchSuggestions").should("exist");
+    cy.get("#suggestionid615").click();
+    cy.get("#searchSuggestions").should("not.exist");
+  });
+
+  it("should close search suggestions when clicking outside the input box", () => {
+    cy.get("#searchInput").type("futurama");
+    cy.get("body").click(0, 0);
+    cy.get("#searchSuggestions").should("not.exist");
+  });
+
+  it("should keep showing search suggestions when clicking inside the input box", () => {
+    cy.get("#searchInput").type("futurama");
+    cy.get("#searchInput").click();
+    cy.get("#searchSuggestions").should("exist");
+  });
+
+  it("should hide search suggestions when clicking using Enter key in input box", () => {
+    cy.get("#searchInput").type("futurama");
+    cy.get("#searchInput").type("{enter}");
+    cy.get("#searchSuggestions").should("not.exist");
   });
 });

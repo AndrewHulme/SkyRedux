@@ -13,7 +13,7 @@ function Results(props) {
           {props.results.map((result) => (
             <tr
               id={"id" + result.id}
-              className="resultsGrid"
+              className="tableRow"
               key={result.id}
               onClick={() => props.onDetails(result)}
             >

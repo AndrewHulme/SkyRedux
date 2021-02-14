@@ -11,6 +11,12 @@ function Details(props) {
   return (
     <div id="details">
       <div id={props.mediaType === "person" ? "personDetails" : "showDetails"}>
+        <h1 id="detailsTitle">
+          {props.details.title !== undefined
+            ? props.details.title
+            : props.details.name}
+        </h1>
+
         <h2>Overview</h2>
         <div>
           {props.mediaType === "person"
@@ -38,6 +44,7 @@ function Details(props) {
                 <tr
                   key={key}
                   id={"id" + credit.id}
+                  className="tableRow"
                   onClick={() =>
                     props.onDetails({
                       media_type: credit.media_type,

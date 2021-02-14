@@ -14,8 +14,8 @@ describe("Results", () => {
   });
 
   it("Displays all three results", () => {
-    const resultsGrid = wrapper.find(".resultsGrid");
-    expect(resultsGrid.length).toEqual(3);
+    const tableRow = wrapper.find(".tableRow");
+    expect(tableRow.length).toEqual(3);
   });
 
   it("Displays the title of the results", () => {
