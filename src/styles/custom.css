@@ -34,3 +34,15 @@
 #detailsTitle {
   text-align: center;
 }
+
+#results td {
+  padding: 0 60px 0 0;
+}
+
+#personDetails td {
+  padding: 0 65px 0 0;
+}
+
+#showDetails td {
+  padding: 0 25px 0 0;
+}

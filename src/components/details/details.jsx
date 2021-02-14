@@ -26,7 +26,7 @@ function Details(props) {
         <br />
         <div id="credits">
           <h2>Credits</h2>
-          <table>
+          <table className="table">
             <tbody>
               {props.mediaType === "person" ? (
                 <tr>

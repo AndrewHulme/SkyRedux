@@ -3,7 +3,7 @@ import React from "react";
 function Results(props) {
   return (
     <div id="results">
-      <table>
+      <table className="table">
         <tbody>
           <tr>
             <th>Media Type</th>
