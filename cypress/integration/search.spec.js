@@ -6,6 +6,12 @@ describe("Search", () => {
   it("should show a search input field and a search button", () => {
     cy.get("#searchInput").should("be.visible");
     cy.get("#searchButton").should("be.visible");
+
+    cy.get("#searchInput").should(
+      "have.attr",
+      "placeholder",
+      "Search for Actors, Movies or TV Shows"
+    );
   });
 
   it("should immediately focus on search input field when user lands on page", () => {

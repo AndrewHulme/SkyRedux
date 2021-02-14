@@ -17,6 +17,15 @@ describe("SearchInput", () => {
     expect(input.exists()).toBeTruthy();
   });
 
+  it("should show a placeholder in input field", () => {
+    const wrapper = shallow(<SearchInput search="" />);
+    const input = wrapper.find("input");
+
+    expect(input.props().placeholder).toEqual(
+      "Search for Actors, Movies or TV Shows"
+    );
+  });
+
   it("should immediately focus on input field", () => {
     document.body.innerHTML = "<div></div>";
 

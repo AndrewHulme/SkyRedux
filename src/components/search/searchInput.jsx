@@ -65,6 +65,7 @@ function SearchInput(props) {
         id="searchInput"
         autoFocus
         value={props.search}
+        placeholder="Search for Actors, Movies or TV Shows"
         onChange={(e) => props.updateSearch(e.target.value)}
         onKeyPress={handleKeyPress}
       ></input>
