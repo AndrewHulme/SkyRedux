@@ -3,7 +3,7 @@ import React from "react";
 function Results(props) {
   return (
     <div id="results">
-      <table className="table">
+      <table>
         <tbody>
           <tr>
             <th>Media Type</th>
@@ -13,7 +13,7 @@ function Results(props) {
           {props.results.map((result) => (
             <tr
               id={"id" + result.id}
-              className="resultsGrid"
+              className="tableRow"
               key={result.id}
               onClick={() => props.onDetails(result)}
             >

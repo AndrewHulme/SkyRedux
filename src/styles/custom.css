@@ -46,3 +46,11 @@
 #showDetails td {
   padding: 0 25px 0 0;
 }
+
+.tableRow {
+  cursor: pointer;
+}
+
+.tableRow:hover {
+  background-color: rgb(238, 238, 238);
+}

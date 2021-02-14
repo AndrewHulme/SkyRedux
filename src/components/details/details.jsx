@@ -26,7 +26,7 @@ function Details(props) {
         <br />
         <div id="credits">
           <h2>Credits</h2>
-          <table className="table">
+          <table>
             <tbody>
               {props.mediaType === "person" ? (
                 <tr>
@@ -44,6 +44,7 @@ function Details(props) {
                 <tr
                   key={key}
                   id={"id" + credit.id}
+                  className="tableRow"
                   onClick={() =>
                     props.onDetails({
                       media_type: credit.media_type,
