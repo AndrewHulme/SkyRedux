@@ -5,24 +5,34 @@
   text-align: center;
 }
 
-#results {
-  padding-top: 10px;
-  text-align: left;
-}
-
-#details {
-  text-align: left;
-}
-
 #searchInputContainer {
   position: relative;
   display: inline-block;
 }
 
+#searchInput {
+  width: 280px;
+  height: 25px;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+#searchButton {
+  height: 30px;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+#filterSelect {
+  font-size: 15px;
+  height: 30px;
+  vertical-align: middle;
+}
+
 #searchSuggestions {
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 145px;
+  min-width: 286px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -45,6 +55,15 @@
 
 #showDetails td {
   padding: 0 25px 0 0;
+}
+
+#results {
+  padding-top: 10px;
+  text-align: left;
+}
+
+#details {
+  text-align: left;
 }
 
 .tableRow {
