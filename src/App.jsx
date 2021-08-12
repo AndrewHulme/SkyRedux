@@ -15,8 +15,7 @@ function App(props) {
 
   // const [search, updateSearch] = useState("");
   // const [results, setResults] = useState([]);
-  const [details, setDetails] = useState({});
-
+  // const [details, setDetails] = useState({});
   // const [page, setPage] = useState("");
 
   const mediaType = useRef("");
@@ -37,7 +36,7 @@ function App(props) {
     props.setId(item.id);
 
     mediaType.current = item.media_type;
-    fetchDetails(mediaType.current, item.id, setDetails);
+    fetchDetails(mediaType.current, item.id, props.setDetails);
   }
 
   return (
@@ -61,7 +60,7 @@ function App(props) {
 
       {props.page === "details" && (
         <Details
-          details={details}
+          details={props.details}
           mediaType={mediaType.current}
           id={props.id}
           onDetails={onDetails}
@@ -79,6 +78,7 @@ const mapStateToProps = (state) => {
     search: state.search.search,
     id: state.id.id,
     results: state.results.results,
+    details: state.details.details,
   };
 };
 
@@ -89,6 +89,7 @@ const mapDispatchToProps = (dispatch) => {
     updateSearch: (string) => dispatch(actions.updateSearch(string)),
     setId: (string) => dispatch(actions.updateId(string)),
     setResults: (array) => dispatch(actions.setResults(array)),
+    setDetails: (object) => dispatch(actions.setDetails(object)),
   };
 };
 

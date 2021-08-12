@@ -30,3 +30,10 @@ export function setResults(results) {
     payload: results,
   };
 }
+
+export function setDetails(details) {
+  return {
+    type: "DETAILS",
+    payload: details,
+  };
+}

@@ -2,6 +2,8 @@ import pageReducer from "./setPage";
 import searchReducer from "./search";
 import idReducer from "./id";
 import resultsReducer from "./results";
+import detailsReducer from "./details";
+
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
@@ -9,6 +11,7 @@ const allReducers = combineReducers({
   search: searchReducer,
   id: idReducer,
   results: resultsReducer,
+  details: detailsReducer,
 });
 
 export default allReducers;
