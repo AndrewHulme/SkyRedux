@@ -37,3 +37,10 @@ export function setDetails(details) {
     payload: details,
   };
 }
+
+export function setFilter(filter) {
+  return {
+    type: "SETFILTER",
+    payload: filter,
+  };
+}

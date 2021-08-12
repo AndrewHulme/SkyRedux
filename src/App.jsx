@@ -20,13 +20,13 @@ function App(props) {
 
   const mediaType = useRef("");
   // const [id, setId] = useState("");
-  const [filterFor, setFilterFor] = useState("All");
+  // const [filterFor, setFilterFor] = useState("All");
 
   function onSearch() {
     // setPage("results");
 
     props.changePageResults();
-    fetchResults(props.search, props.setResults, filterFor);
+    fetchResults(props.search, props.setResults, props.filter);
   }
 
   function onDetails(item) {
@@ -45,8 +45,8 @@ function App(props) {
         search={props.search}
         onSearch={onSearch}
         updateSearch={props.updateSearch}
-        filterFor={filterFor}
-        setFilterFor={setFilterFor}
+        filterFor={props.filter}
+        setFilterFor={props.setFilter}
         onDetails={onDetails}
       />
 
@@ -54,7 +54,7 @@ function App(props) {
         <Results
           results={props.results}
           onDetails={onDetails}
-          filterFor={filterFor}
+          filterFor={props.filter}
         />
       )}
 
@@ -79,6 +79,7 @@ const mapStateToProps = (state) => {
     id: state.id.id,
     results: state.results.results,
     details: state.details.details,
+    filter: state.filter.filter,
   };
 };
 
@@ -90,6 +91,7 @@ const mapDispatchToProps = (dispatch) => {
     setId: (string) => dispatch(actions.updateId(string)),
     setResults: (array) => dispatch(actions.setResults(array)),
     setDetails: (object) => dispatch(actions.setDetails(object)),
+    setFilter: (string) => dispatch(actions.setFilter(string)),
   };
 };
 
