@@ -9,3 +9,10 @@ export function changePageDetails() {
     type: "CHANGE_PAGE_DETAILS",
   };
 }
+
+export function updateSearch(search) {
+  return {
+    type: "SEARCH",
+    payload: search,
+  };
+}
