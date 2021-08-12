@@ -23,3 +23,10 @@ export function updateId(id) {
     payload: id,
   };
 }
+
+export function setResults(results) {
+  return {
+    type: "RESULTS",
+    payload: results,
+  };
+}

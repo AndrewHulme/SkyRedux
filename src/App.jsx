@@ -14,7 +14,7 @@ function App(props) {
   console.log("Andrew App Props", props);
 
   // const [search, updateSearch] = useState("");
-  const [results, setResults] = useState([]);
+  // const [results, setResults] = useState([]);
   const [details, setDetails] = useState({});
 
   // const [page, setPage] = useState("");
@@ -27,7 +27,7 @@ function App(props) {
     // setPage("results");
 
     props.changePageResults();
-    fetchResults(props.search, setResults, filterFor);
+    fetchResults(props.search, props.setResults, filterFor);
   }
 
   function onDetails(item) {
@@ -53,7 +53,7 @@ function App(props) {
 
       {props.page === "results" && (
         <Results
-          results={results}
+          results={props.results}
           onDetails={onDetails}
           filterFor={filterFor}
         />
@@ -78,6 +78,7 @@ const mapStateToProps = (state) => {
     page: state.page.page,
     search: state.search.search,
     id: state.id.id,
+    results: state.results.results,
   };
 };
 
@@ -87,6 +88,7 @@ const mapDispatchToProps = (dispatch) => {
     changePageDetails: () => dispatch(actions.changePageDetails()),
     updateSearch: (string) => dispatch(actions.updateSearch(string)),
     setId: (string) => dispatch(actions.updateId(string)),
+    setResults: (array) => dispatch(actions.setResults(array)),
   };
 };
 
