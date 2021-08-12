@@ -16,3 +16,10 @@ export function updateSearch(search) {
     payload: search,
   };
 }
+
+export function updateId(id) {
+  return {
+    type: "ID",
+    payload: id,
+  };
+}
