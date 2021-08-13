@@ -44,3 +44,10 @@ export function setFilter(filter) {
     payload: filter,
   };
 }
+
+export function setCredits(credits) {
+  return {
+    type: "CREDITS",
+    payload: credits,
+  };
+}

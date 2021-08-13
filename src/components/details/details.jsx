@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { fetchCredits } from "../../fetchRequests/fetchCredits.js";
 
+import * as actions from "../../actions/index";
+import { connect } from "react-redux";
+
 function Details(props) {
-  const [credits, setCredits] = useState([]);
+  console.log("Andrew Details Props", props);
+
+  // const [credits, setCredits] = useState([]);
 
   useEffect(() => {
-    fetchCredits(props.mediaType, props.id, setCredits);
+    fetchCredits(props.mediaType, props.id, props.setCredits);
   }, [props.mediaType, props.id]);
 
   return (
@@ -40,7 +45,7 @@ function Details(props) {
                 </tr>
               )}
 
-              {credits.map((credit, key) => (
+              {props.credits.map((credit, key) => (
                 <tr
                   key={key}
                   id={"id" + credit.id}
@@ -68,4 +73,18 @@ function Details(props) {
   );
 }
 
-export default Details;
+const mapStateToProps = (state) => {
+  console.log("Andrew Details State", state);
+
+  return {
+    credits: state.credits.credits,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCredits: (array) => dispatch(actions.setCredits(array)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

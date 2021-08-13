@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import Search from "./components/search/search.jsx";
 import Results from "./components/results/results.jsx";
 import Details from "./components/details/details.jsx";
