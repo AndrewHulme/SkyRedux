@@ -52,9 +52,16 @@ export function setCredits(credits) {
   };
 }
 
-export function setDisplaySuggestions(suggestions) {
+export function setDisplaySuggestions(boolean) {
   return {
     type: "DISPLAYSUGGESTIONS",
+    payload: boolean,
+  };
+}
+
+export function setSuggestions(suggestions) {
+  return {
+    type: "SUGGESTIONS",
     payload: suggestions,
   };
 }

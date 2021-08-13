@@ -9,7 +9,7 @@ function SearchInput(props) {
 
   // const [displaySuggestions, setDisplaySuggestions] = useState(false);
   const [results, setResults] = useState([]);
-  const [suggestions, setSuggestions] = useState([]);
+  // const [suggestions, setSuggestions] = useState([]);
   const wrapperRef = useRef(null);
 
   function handleKeyPress(event) {
@@ -30,7 +30,7 @@ function SearchInput(props) {
           props.filterFor
         );
 
-        setSuggestions(array);
+        props.setSuggestions(array);
       };
 
       fetchSuggestions();
@@ -76,7 +76,7 @@ function SearchInput(props) {
       ></input>
       {props.displaySuggestions && (
         <div id={"searchSuggestions"}>
-          {suggestions.map((suggestion, index) => (
+          {props.suggestions.map((suggestion, index) => (
             <div
               key={index}
               id={"suggestionid" + suggestion.id}
@@ -102,6 +102,7 @@ const mapStateToProps = (state) => {
 
   return {
     displaySuggestions: state.displaySuggestions.displaySuggestions,
+    suggestions: state.suggestions.suggestions,
   };
 };
 
@@ -109,6 +110,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setDisplaySuggestions: (boolean) =>
       dispatch(actions.setDisplaySuggestions(boolean)),
+    setSuggestions: (array) => dispatch(actions.setSuggestions(array)),
   };
 };
 
