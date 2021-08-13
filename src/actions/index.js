@@ -51,3 +51,10 @@ export function setCredits(credits) {
     payload: credits,
   };
 }
+
+export function setDisplaySuggestions(suggestions) {
+  return {
+    type: "DISPLAYSUGGESTIONS",
+    payload: suggestions,
+  };
+}

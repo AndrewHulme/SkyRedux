@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { fetchResults } from "../../fetchRequests/fetchResults.js";
 
+import * as actions from "../../actions/index";
+import { connect } from "react-redux";
+
 function SearchInput(props) {
-  const [displaySuggestions, setDisplaySuggestions] = useState(false);
+  console.log("Andrew SearchInput Props", props);
+
+  // const [displaySuggestions, setDisplaySuggestions] = useState(false);
   const [results, setResults] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
   const wrapperRef = useRef(null);
@@ -10,14 +15,14 @@ function SearchInput(props) {
   function handleKeyPress(event) {
     if (event.key === "Enter") {
       props.onSearch();
-      setDisplaySuggestions(false);
+      props.setDisplaySuggestions(false);
     }
   }
 
   useEffect(() => {
     if (props.search.length >= 5) {
       const fetchSuggestions = async () => {
-        setDisplaySuggestions(true);
+        props.setDisplaySuggestions(true);
 
         const array = await fetchResults(
           props.search,
@@ -30,7 +35,7 @@ function SearchInput(props) {
 
       fetchSuggestions();
     } else {
-      setDisplaySuggestions(false);
+      props.setDisplaySuggestions(false);
     }
   }, [props.search]);
 
@@ -46,7 +51,7 @@ function SearchInput(props) {
     const { current: wrap } = wrapperRef;
 
     if (wrap && !wrap.contains(event.target)) {
-      setDisplaySuggestions(false);
+      props.setDisplaySuggestions(false);
     }
   };
 
@@ -56,7 +61,7 @@ function SearchInput(props) {
       id: id,
     });
 
-    setDisplaySuggestions(false);
+    props.setDisplaySuggestions(false);
   };
 
   return (
@@ -69,7 +74,7 @@ function SearchInput(props) {
         onChange={(e) => props.updateSearch(e.target.value)}
         onKeyPress={handleKeyPress}
       ></input>
-      {displaySuggestions && (
+      {props.displaySuggestions && (
         <div id={"searchSuggestions"}>
           {suggestions.map((suggestion, index) => (
             <div
@@ -92,4 +97,19 @@ function SearchInput(props) {
   );
 }
 
-export default SearchInput;
+const mapStateToProps = (state) => {
+  console.log("Andrew searchInput State", state);
+
+  return {
+    displaySuggestions: state.displaySuggestions.displaySuggestions,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setDisplaySuggestions: (boolean) =>
+      dispatch(actions.setDisplaySuggestions(boolean)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);

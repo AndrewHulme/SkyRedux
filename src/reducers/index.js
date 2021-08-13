@@ -5,6 +5,7 @@ import resultsReducer from "./results";
 import detailsReducer from "./details";
 import filterReducer from "./filter";
 import creditsReducer from "./credits";
+import displaySuggestionsReducer from "./displaySuggestions";
 
 import { combineReducers } from "redux";
 
@@ -16,6 +17,7 @@ const allReducers = combineReducers({
   details: detailsReducer,
   filter: filterReducer,
   credits: creditsReducer,
+  displaySuggestions: displaySuggestionsReducer,
 });
 
 export default allReducers;
