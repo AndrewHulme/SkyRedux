@@ -22,11 +22,12 @@ function App(props) {
   // const [id, setId] = useState("");
   // const [filterFor, setFilterFor] = useState("All");
 
-  function onSearch() {
+  async function onSearch() {
     // setPage("results");
 
     props.changePageResults();
-    fetchResults(props.search, props.setResults, props.filter);
+    const resultsArray = await fetchResults(props.search, props.filter);
+    props.setResults(resultsArray);
   }
 
   function onDetails(item) {

@@ -1,6 +1,6 @@
 let helperFunctions = require("../helperFunctions.js");
 
-const fetchResults = async (request, setResults, filter = "All") => {
+const fetchResults = async (request, filter = "All") => {
   const filterResults = helperFunctions.convertName(filter);
 
   const data = await fetch(
@@ -16,7 +16,7 @@ const fetchResults = async (request, setResults, filter = "All") => {
     }));
   }
 
-  setResults(resultsArray);
+  // setResults(resultsArray);
   return resultsArray;
 };
 

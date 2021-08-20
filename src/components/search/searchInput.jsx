@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { fetchResults } from "../../fetchRequests/fetchResults.js";
 
 import * as actions from "../../actions/index";
@@ -8,7 +8,7 @@ function SearchInput(props) {
   console.log("Andrew SearchInput Props", props);
 
   // const [displaySuggestions, setDisplaySuggestions] = useState(false);
-  const [results, setResults] = useState([]);
+  // const [results, setResults] = useState([]);
   // const [suggestions, setSuggestions] = useState([]);
   const wrapperRef = useRef(null);
 
@@ -24,11 +24,7 @@ function SearchInput(props) {
       const fetchSuggestions = async () => {
         props.setDisplaySuggestions(true);
 
-        const array = await fetchResults(
-          props.search,
-          setResults,
-          props.filterFor
-        );
+        const array = await fetchResults(props.search, props.filterFor);
 
         props.setSuggestions(array);
       };
